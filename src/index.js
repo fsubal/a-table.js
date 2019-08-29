@@ -1271,8 +1271,11 @@ export default class aTable extends aTemplate {
     if (points.length === 0) {
       return;
     }
-    if (!confirm(this.data.message.mergeCellConfirm1)) {
-      return;
+    
+    if (this.data.message.mergeCellConfirm1) {
+      if (!confirm(this.data.message.mergeCellConfirm1)) {
+        return;
+      }
     }
     const point = this.getLargePoint.apply(null, points);
     const cell = this.getCellByPos(point.x, point.y);
